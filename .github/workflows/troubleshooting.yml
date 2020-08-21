@@ -12,6 +12,10 @@ jobs:
       working-directory: ./
       run: |
         sudo apt-get update; sudo apt-get install -y libomp5 libomp-dev
+        echo OMP_NUM_THREADS:$OMP_NUM_THREADS
+        echo OMP_SCHEDULE:$OMP_SCHEDULE
+        echo OMP_DYNAMIC:$OMP_DYNAMIC
+        echo OMP_NESTED:$OMP_NESTED
         gcc omp_hello.c -fopenmp -o omp_hello
         ldd omp_hello
         ./omp_hello
